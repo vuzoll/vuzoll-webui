@@ -20,11 +20,8 @@ var paths = {
   test: ['test/spec/**/*.js'],
   testRequire: [
     yeoman.app + '/bower_components/angular/angular.js',
-    yeoman.app + '/bower_components/angular-mocks/angular-mocks.js',
-    yeoman.app + '/bower_components/angular-resource/angular-resource.js',
-    yeoman.app + '/bower_components/angular-cookies/angular-cookies.js',
-    yeoman.app + '/bower_components/angular-sanitize/angular-sanitize.js',
-    yeoman.app + '/bower_components/angular-route/angular-route.js',
+    yeoman.app + 'bower_components/angular-ui-router/release/angular-ui-router.min.js',
+    yeoman.app + 'bower_components/angular-resource/angular-resource.min.js',
     'test/mock/**/*.js',
     'test/spec/**/*.js'
   ],
@@ -163,11 +160,12 @@ gulp.task('client:build', ['html', 'styles'], function () {
     .pipe(jsFilter)
     .pipe($.ngAnnotate())
     .pipe($.uglify())
+    .pipe($.rev())
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
     .pipe($.minifyCss({cache: true}))
-    .pipe(cssFilter.restore())
     .pipe($.rev())
+    .pipe(cssFilter.restore())
     .pipe($.revReplace())
     .pipe(gulp.dest(yeoman.dist));
 });

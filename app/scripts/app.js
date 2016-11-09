@@ -1,12 +1,20 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name vuzollWebuiApp
- * @description
- * # vuzollWebuiApp
- *
- * Main module of the application.
- */
-angular
-  .module('vuzollWebuiApp', []);
+angular .module('vuzollWebuiApp', ['ui.router', 'ngResource'])
+        .config(function($stateProvider, $urlRouterProvider) {
+
+            $stateProvider
+                .state('app', {
+                    url: '/',
+                    views: {
+                        'header': {
+                            templateUrl : 'views/header.html',
+                        },
+                        'content': {
+                            templateUrl : 'views/feed.html'
+                        }
+                    }
+                });
+
+            $urlRouterProvider.otherwise('/');
+        });
