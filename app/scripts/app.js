@@ -11,7 +11,7 @@ angular .module('vuzollWebuiApp', ['ui.router', 'ngResource'])
                             templateUrl : 'views/header.html',
                         },
                         'content': {
-                            templateUrl : 'views/feed.html'
+                            templateUrl : 'views/main.html'
                         }
                     }
                 });
