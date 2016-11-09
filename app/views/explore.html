@@ -1,0 +1,29 @@
+<div class="container" ng-controller="ExploreController">
+    <div class="row">
+        <div class="col-xs-12">
+           <ul class="breadcrumb">
+               <li><a href="index.html">Home</a></li>
+               <li class="active">Explore</li>
+           </ul>
+        </div>
+
+        <div class="col-xs-12">
+           <h3>Explore</h3>
+           <hr>
+        </div>
+    </div>
+
+    <div class="row row-content">
+        <div class="col-xs-12" ng-if="!showReport">
+            <h3>{{message}}</h3>
+        </div>
+
+        <div class="col-xs-12 col-sm-9" ng-if="showReport">
+             <h2>Total number of records: {{report.size}}</h2>
+        </div>
+
+        <div class="col-xs-12 col-sm-3">
+            <p style="padding:20px;"></p>
+        </div>
+   </div>
+</div>
