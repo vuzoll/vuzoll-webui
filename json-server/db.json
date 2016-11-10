@@ -11,6 +11,92 @@
         { "name": "Ukraine", "count": 5 },
         { "name": "England", "count": 2 }
       ]
+    },
+    "city": {
+      "count": 3,
+      "undefined": 153,
+      "distribution": [
+        { "name": "Kyiv", "count": 5 },
+        { "name": "London", "count": 2 }
+      ]
+    },
+    "university": {
+      "count": 3,
+      "undefined": 153,
+      "distribution": [
+        { "name": "KNU", "count": 5 },
+        { "name": "Harvard", "count": 2 }
+      ]
+    },
+    "faculty": {
+      "count": 3,
+      "undefined": 153,
+      "distribution": [
+        { "name": "cybernetics", "count": 5 },
+        { "name": "religion", "count": 2 }
+      ]
+    },
+    "graduateYear": {
+      "count": 3,
+      "undefined": 153,
+      "distribution": [
+        { "name": "2014", "count": 5 },
+        { "name": "2015", "count": 2 }
+      ]
+    },
+    "occupation": {
+      "type": {
+        "count": 3,
+        "distribution": [
+          { "name": "#1", "count": 5 },
+          { "name": "#2", "count": 2 }
+        ]
+      },
+      "name": {
+        "count": 3,
+        "distribution": [
+          { "name": "#1", "count": 5 },
+          { "name": "#2", "count": 2 }
+        ]
+      }
+    },
+    "work": {
+      "name": {
+        "count": 3,
+        "distribution": [
+          { "name": "#1", "count": 5 },
+          { "name": "#2", "count": 2 }
+        ]
+      }
+    },
+    "career": {
+      "size": {
+        "distribution": [
+          { "name": "#1", "count": 5 },
+          { "name": "#2", "count": 2 }
+        ]
+      },
+      "company": {
+        "count": 3,
+        "distribution": [
+          { "name": "#1", "count": 5 },
+          { "name": "#2", "count": 2 }
+        ]
+      },
+      "city": {
+        "count": 3,
+        "distribution": [
+          { "name": "#1", "count": 5 },
+          { "name": "#2", "count": 2 }
+        ]
+      },
+      "position": {
+        "count": 3,
+        "distribution": [
+          { "name": "#1", "count": 5 },
+          { "name": "#2", "count": 2 }
+        ]
+      }
     }
   }
 }
