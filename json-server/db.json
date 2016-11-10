@@ -1,5 +1,16 @@
 {
   "explore": {
-      "size": 28
+    "size": {
+      "total":  28,
+      "unique": 17
+    },
+    "country": {
+      "count": 3,
+      "undefined": 153,
+      "distribution": [
+        { "name": "Ukraine", "count": 5 },
+        { "name": "England", "count": 2 }
+      ]
     }
+  }
 }
