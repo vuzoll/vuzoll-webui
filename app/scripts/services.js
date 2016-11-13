@@ -2,7 +2,7 @@
 
 angular .module('vuzollWebuiApp')
 
-        .constant("baseURL","http://localhost:3000/")
+        .constant("baseURL","http://138.68.145.93:3000/")
 
         .service('exploreFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
             this.getReport = function() {

@@ -22,3 +22,7 @@ docker kill $CONTAINER_ID # if needed
 docker pull vuzoll/vuzoll-webui
 docker run -dit -p 80:80 vuzoll/vuzoll-webui
 ----
+
+== HOWTO: check web ui
+
+Go to http://138.68.145.93
