@@ -1,0 +1,9 @@
+# build artifacts
+/node_modules
+/dist
+/.tmp
+/.sass-cache
+/bower_components
+
+# local environment
+/json-server

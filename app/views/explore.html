@@ -1,0 +1,311 @@
+<div class="container" ng-controller="ExploreController">
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="breadcrumb">
+        <li><a href="index.html">Home</a></li>
+        <li class="active">Explore</li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12">
+      <h3>Explore</h3>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h3>{{message}}</h3>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h2>Dataset size</h2>
+
+      <p>Total number of records: {{report.size.total}}</p>
+      <p>Number of unique records: {{report.size.unique}}</p>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h3>{{message}}</h3>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h2>Countries</h2>
+
+      <p>Total number of countries: {{report.country.count}}</p>
+      <p>Number of records with undefined country: {{report.country.undefined}}</p>
+
+      <p>Countries distribution:</p>
+      <ul>
+        <li ng-repeat="country in report.country.distribution">
+          <p>{{country.name}} - {{country.count}} times</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h3>{{message}}</h3>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h2>Cities</h2>
+
+      <p>Total number of cities: {{report.city.count}}</p>
+      <p>Number of records with undefined city: {{report.city.undefined}}</p>
+
+      <p>Cities distribution:</p>
+      <ul>
+        <li ng-repeat="city in report.city.distribution">
+          <p>{{city.name}} - {{city.count}} times</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h3>{{message}}</h3>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h2>Universities</h2>
+
+      <p>Total number of universities: {{report.university.count}}</p>
+      <p>Number of records with undefined university: {{report.university.undefined}}</p>
+
+      <p>Universities distribution:</p>
+      <ul>
+        <li ng-repeat="university in report.university.distribution">
+          <p>{{university.name}} - {{university.count}} times</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h3>{{message}}</h3>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h2>Faculties</h2>
+
+      <p>Total number of faculties: {{report.faculty.count}}</p>
+      <p>Number of records with undefined faculty: {{report.faculty.undefined}}</p>
+
+      <p>Faculties distribution:</p>
+      <ul>
+        <li ng-repeat="faculty in report.faculty.distribution">
+          <p>{{faculty.name}} - {{faculty.count}} times</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h3>{{message}}</h3>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h2>Graduate years</h2>
+
+      <p>Total number of graduate years: {{report.graduateYear.count}}</p>
+      <p>Number of records with undefined graduate year: {{report.graduateYear.undefined}}</p>
+
+      <p>Gradute years distribution:</p>
+      <ul>
+        <li ng-repeat="graduateYear in report.graduateYear.distribution">
+          <p>{{graduateYear.name}} - {{graduateYear.count}} times</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h3>{{message}}</h3>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h2>Occupation types</h2>
+
+      <p>Total number of occupation types: {{report.occupation.type.count}}</p>
+
+      <p>Occupation types distribution:</p>
+      <ul>
+        <li ng-repeat="occupationType in report.occupation.type.distribution">
+          <p>{{occupationType.name}} - {{occupationType.count}} times</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h3>{{message}}</h3>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h2>Occupation names</h2>
+
+      <p>Total number of occupation names: {{report.occupation.name.count}}</p>
+
+      <p>Occupation names distribution:</p>
+      <ul>
+        <li ng-repeat="occupationName in report.occupation.name.distribution">
+          <p>{{occupationName.name}} - {{occupationName.count}} times</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h3>{{message}}</h3>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h2>Work names</h2>
+
+      <p>Total number of work names: {{report.work.name.count}}</p>
+
+      <p>Work names distribution:</p>
+      <ul>
+        <li ng-repeat="workName in report.work.name.distribution">
+          <p>{{workName.name}} - {{workName.count}} times</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h3>{{message}}</h3>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h2>Career size</h2>
+
+      <p>Career sizes distribution:</p>
+      <ul>
+        <li ng-repeat="careerSize in report.career.size.distribution">
+          <p>{{careerSize.name}} - {{careerSize.count}} times</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h3>{{message}}</h3>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h2>Career companies</h2>
+
+      <p>Total number of career companies: {{report.career.company.count}}</p>
+
+      <p>Career companies distribution:</p>
+      <ul>
+        <li ng-repeat="company in report.career.company.distribution">
+          <p>{{company.name}} - {{company.count}} times</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h3>{{message}}</h3>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h2>Career cities</h2>
+
+      <p>Total number of career cities: {{report.career.city.count}}</p>
+
+      <p>Career cities distribution:</p>
+      <ul>
+        <li ng-repeat="city in report.career.city.distribution">
+          <p>{{city.name}} - {{city.count}} times</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h3>{{message}}</h3>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h2>Career positions</h2>
+
+      <p>Total number of career positions: {{report.career.position.count}}</p>
+
+      <p>Career positions distribution:</p>
+      <ul>
+        <li ng-repeat="position in report.career.position.distribution">
+          <p>{{position.name}} - {{position.count}} times</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+</div>
