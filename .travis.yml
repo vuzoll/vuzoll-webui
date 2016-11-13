@@ -1,0 +1,26 @@
+sudo: required
+
+language: node_js
+node_js:
+  - "0.12"
+
+services:
+  - docker
+
+before_install:
+  - npm install -g gulp
+  - npm install -g bower
+
+install:
+  - npm install
+  - bower install
+
+before_script:
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+
+script:
+  - gulp
+
+after_script:
+  - docker build -t vuzoll/vuzoll-webui .
+  - docker push vuzoll/vuzoll-webui

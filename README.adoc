@@ -11,3 +11,18 @@ cp -rf dist/* json-server/public
 cd json-server
 json-server db.json
 ----
+
+== HOWTO: start with docker
+
+[source,shell]
+----
+docker ps # to determine if container is already running
+docker kill $CONTAINER_ID # if needed
+
+docker pull vuzoll/vuzoll-webui
+docker run -dit -p 80:80 vuzoll/vuzoll-webui
+----
+
+== HOWTO: check web ui
+
+Go to http://138.68.145.93
