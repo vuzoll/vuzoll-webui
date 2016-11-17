@@ -2,16 +2,6 @@
 
 Web interface for vuzoll project
 
-== HOWTO: start locally
-
-[source,shell]
-----
-gulp
-cp -rf dist/* json-server/public
-cd json-server
-json-server db.json
-----
-
 == HOWTO: start with docker
 
 [source,shell]
