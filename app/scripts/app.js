@@ -11,8 +11,7 @@ angular .module('vuzollWebuiApp', ['ui.router', 'ngResource'])
                             templateUrl : 'views/header.html',
                         },
                         'content': {
-                            templateUrl : 'views/home.html',
-                            controller  : 'IndexController'
+                            templateUrl : 'views/home.html'
                         },
                         'footer': {
                             templateUrl : 'views/footer.html',
@@ -20,12 +19,21 @@ angular .module('vuzollWebuiApp', ['ui.router', 'ngResource'])
                     }
                 })
 
-                .state('app.explore', {
-                    url: 'explore',
+                .state('app.datasets', {
+                    url: 'datasets',
                     views: {
                         'content@': {
-                            templateUrl : 'views/explore.html',
-                            controller  : 'ExploreController'
+                            templateUrl : 'views/datasets.html'
+                        }
+                    }
+                })
+
+                .state('app.vk_vlad', {
+                    url: 'vk_vlad',
+                    views: {
+                        'content@': {
+                            templateUrl : 'views/vk_vlad.html',
+                            controller  : 'VkByVladController'
                         }
                     }
                 });

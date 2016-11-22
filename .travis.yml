@@ -15,12 +15,13 @@ install:
   - npm install
   - bower install
 
-before_script:
-  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-
 script:
   - gulp
 
-after_script:
-  - docker build -t vuzoll/vuzoll-webui .
-  - docker push vuzoll/vuzoll-webui
+after_success:
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - export DOCKER_REPO=vuzoll/vuzoll-webui
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH | tr '/' '-' ; fi`
+  - docker build -t $DOCKER_REPO:travis-$TRAVIS_BUILD_NUMBER .
+  - docker tag $DOCKER_REPO:travis-$TRAVIS_BUILD_NUMBER $DOCKER_REPO:$TAG
+  - docker push $DOCKER_REPO
