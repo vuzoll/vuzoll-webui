@@ -1,2 +1,19 @@
-<div class="container" ng-controller="IndexController">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="breadcrumb">
+        <li class="active"><a href="index.html">Головна</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h2><a ui-sref="app.explore">Датасети</a></h2>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
 </div>

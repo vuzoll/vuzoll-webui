@@ -2,9 +2,6 @@
 
 angular .module('vuzollWebuiApp')
 
-        .controller('IndexController', ['$scope', function($scope) {
-        }])
-
         .controller('ExploreController', ['$scope', 'exploreFactory', function($scope, exploreFactory) {
             $scope.showReport = false;
             $scope.message = "Loading ...";
