@@ -11,8 +11,7 @@ angular .module('vuzollWebuiApp', ['ui.router', 'ngResource'])
                             templateUrl : 'views/header.html',
                         },
                         'content': {
-                            templateUrl : 'views/home.html',
-                            controller  : 'IndexController'
+                            templateUrl : 'views/home.html'
                         },
                         'footer': {
                             templateUrl : 'views/footer.html',
