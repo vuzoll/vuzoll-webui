@@ -16,7 +16,7 @@
 
   <div class="row row-content">
     <div class="col-xs-12" ng-if="!showReport">
-      <h4>{{message}}</h4>
+      <h4>{{showReportMessage}}</h4>
     </div>
 
     <div class="col-xs-12 col-sm-9" ng-if="showReport">
@@ -32,8 +32,30 @@
   </div>
 
   <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showRandomRecord">
+      <h4>{{showRandomRecordMessage}}</h4>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showRandomRecord">
+      <h4>Випадковий запис</h4>
+
+      <p>id: {{randomRecord.id}}</p>
+      <p>Профіль: <a href="https://vk.com/id{{randomRecord.id}}">https://vk.com/id{{randomRecord.id}}</a></p>
+      <p>Країна: {{randomRecord.country}}</p>
+      <p>Місто: {{randomRecord.city}}</p>
+      <p>Університет: {{randomRecord.university}}</p>
+      <p>Факультет: {{randomRecord.faculty}}</p>
+      <p>Запис: {{randomRecord.raw}}</p>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
     <div class="col-xs-12" ng-if="!showReport">
-      <h4>{{message}}</h4>
+      <h4>{{showReportMessage}}</h4>
     </div>
 
     <div class="col-xs-12 col-sm-9" ng-if="showReport">
@@ -57,7 +79,7 @@
 
   <div class="row row-content">
     <div class="col-xs-12" ng-if="!showReport">
-      <h4>{{message}}</h4>
+      <h4>{{showReportMessage}}</h4>
     </div>
 
     <div class="col-xs-12 col-sm-9" ng-if="showReport">
@@ -81,7 +103,7 @@
 
   <div class="row row-content">
     <div class="col-xs-12" ng-if="!showReport">
-      <h4>{{message}}</h4>
+      <h4>{{showReportMessage}}</h4>
     </div>
 
     <div class="col-xs-12 col-sm-9" ng-if="showReport">
@@ -105,7 +127,7 @@
 
   <div class="row row-content">
     <div class="col-xs-12" ng-if="!showReport">
-      <h4>{{message}}</h4>
+      <h4>{{showReportMessage}}</h4>
     </div>
 
     <div class="col-xs-12 col-sm-9" ng-if="showReport">
@@ -129,7 +151,7 @@
 
   <div class="row row-content">
     <div class="col-xs-12" ng-if="!showReport">
-      <h4>{{message}}</h4>
+      <h4>{{showReportMessage}}</h4>
     </div>
 
     <div class="col-xs-12 col-sm-9" ng-if="showReport">
@@ -153,7 +175,7 @@
 
   <div class="row row-content">
     <div class="col-xs-12" ng-if="!showReport">
-      <h4>{{message}}</h4>
+      <h4>{{showReportMessage}}</h4>
     </div>
 
     <div class="col-xs-12 col-sm-9" ng-if="showReport">
@@ -176,7 +198,7 @@
 
   <div class="row row-content">
     <div class="col-xs-12" ng-if="!showReport">
-      <h4>{{message}}</h4>
+      <h4>{{showReportMessage}}</h4>
     </div>
 
     <div class="col-xs-12 col-sm-9" ng-if="showReport">
@@ -199,7 +221,7 @@
 
   <div class="row row-content">
     <div class="col-xs-12" ng-if="!showReport">
-      <h4>{{message}}</h4>
+      <h4>{{showReportMessage}}</h4>
     </div>
 
     <div class="col-xs-12 col-sm-9" ng-if="showReport">
@@ -222,7 +244,7 @@
 
   <div class="row row-content">
     <div class="col-xs-12" ng-if="!showReport">
-      <h4>{{message}}</h4>
+      <h4>{{showReportMessage}}</h4>
     </div>
 
     <div class="col-xs-12 col-sm-9" ng-if="showReport">
@@ -243,7 +265,7 @@
 
   <div class="row row-content">
     <div class="col-xs-12" ng-if="!showReport">
-      <h4>{{message}}</h4>
+      <h4>{{showReportMessage}}</h4>
     </div>
 
     <div class="col-xs-12 col-sm-9" ng-if="showReport">
@@ -266,7 +288,7 @@
 
   <div class="row row-content">
     <div class="col-xs-12" ng-if="!showReport">
-      <h4>{{message}}</h4>
+      <h4>{{showReportMessage}}</h4>
     </div>
 
     <div class="col-xs-12 col-sm-9" ng-if="showReport">
@@ -289,7 +311,7 @@
 
   <div class="row row-content">
     <div class="col-xs-12" ng-if="!showReport">
-      <h4>{{message}}</h4>
+      <h4>{{showReportMessage}}</h4>
     </div>
 
     <div class="col-xs-12 col-sm-9" ng-if="showReport">
