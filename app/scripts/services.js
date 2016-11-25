@@ -11,7 +11,7 @@ angular .module('vuzollWebuiApp')
         }])
 
         .service('randomRecordFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
-            this.getReport = function() {
+            this.getRandomRecord = function() {
                 return $resource(baseURL + 'datasets/vk-by-vlad/record/random', null,  { });
             };
         }])
