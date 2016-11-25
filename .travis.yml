@@ -18,7 +18,7 @@ install:
 script:
   - gulp
 
-after_success:
+after_script:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - export DOCKER_REPO=vuzoll/vuzoll-webui
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH | tr '/' '-' ; fi`
