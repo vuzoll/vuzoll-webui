@@ -6,7 +6,7 @@ angular .module('vuzollWebuiApp')
 
         .service('exploreFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
             this.getReport = function() {
-                return $resource(baseURL + 'explore', null,  { 'update': {method:'PUT'} });
+                return $resource(baseURL + 'datasets/vk-by-vlad/explore', null,  { 'update': {method:'PUT'} });
             };
         }])
 ;
