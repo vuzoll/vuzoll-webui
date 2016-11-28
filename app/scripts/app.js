@@ -28,13 +28,23 @@ angular .module('vuzollWebuiApp', ['ui.router', 'ngResource'])
                     }
                 })
 
-                .state('app.vk_vlad', {
-                    url: 'vk_vlad',
+                .state('app.vk_vlad_explore', {
+                    url: 'vk_vlad_explore',
                     views: {
                         'content@': {
-                            templateUrl : 'views/vk_vlad.html',
-                            controller  : 'VkByVladController'
+                            templateUrl : 'views/vk_vlad_explore.html',
+                            controller  : 'VkByVladExploreController'
                         }
+                    }
+                })
+
+                .state('app.vk_vlad_record', {
+                    url: 'vk_vlad_record/:id',
+                    views: {
+                        'content@': {
+                            templateUrl : 'views/vk_vlad_record.html',
+                            controller  : 'VkByVladRecordController'
+                       }
                     }
                 });
 

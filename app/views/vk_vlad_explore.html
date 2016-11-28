@@ -1,10 +1,10 @@
-<div class="container" ng-controller="VkByVladController">
+<div class="container" ng-controller="VkByVladExploreController">
   <div class="row">
     <div class="col-xs-12">
       <ul class="breadcrumb">
         <li><a ui-sref="app">Головна</a></li>
         <li><a ui-sref="app.datasets">Датасети</a></li>
-        <li class="active"><a ui-sref="app.vk_vlad">Датасет 'Vk by Vlad'</a></li>
+        <li class="active"><a ui-sref="app.vk_vlad_explore">Датасет 'Vk by Vlad'</a></li>
       </ul>
     </div>
 
@@ -39,8 +39,8 @@
     <div class="col-xs-12 col-sm-9" ng-if="showRandomRecord">
       <h4>Випадковий запис</h4>
 
-      <p>id: {{randomRecord.id}}</p>
-      <p>Профіль: <a href="https://vk.com/id{{randomRecord.id}}">https://vk.com/id{{randomRecord.id}}</a></p>
+      <p><a ui-sref="app.vk_vlad_record({id: record.id})">id: {{randomRecord.id}}'</a></p>
+      <p>Профіль: <a href="https://vk.com/id{{randomRecord.vkid}}">https://vk.com/id{{randomRecord.vkid}}</a></p>
       <p>Країна: {{randomRecord.country}}</p>
       <p>Місто: {{randomRecord.city}}</p>
       <p>Навчання:</p>

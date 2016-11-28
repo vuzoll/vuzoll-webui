@@ -10,9 +10,13 @@ angular .module('vuzollWebuiApp')
             };
         }])
 
-        .service('randomRecordFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
+        .service('recordFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
             this.getRandomRecord = function() {
                 return $resource(baseURL + 'datasets/vk-by-vlad/record/random', null,  { });
+            };
+
+            this.getRecord = function() {
+                return $resource(baseURL + "datasets/vk-by-vlad/record/:id", null,  { });
             };
         }])
 ;
