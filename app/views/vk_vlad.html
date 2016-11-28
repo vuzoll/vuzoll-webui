@@ -43,8 +43,18 @@
       <p>Профіль: <a href="https://vk.com/id{{randomRecord.id}}">https://vk.com/id{{randomRecord.id}}</a></p>
       <p>Країна: {{randomRecord.country}}</p>
       <p>Місто: {{randomRecord.city}}</p>
-      <p>Університет: {{randomRecord.university}}</p>
-      <p>Факультет: {{randomRecord.faculty}}</p>
+      <p>Навчання:</p>
+      <ul>
+        <li ng-repeat="educationRecord in randomRecord.education">
+          <p>{{educationRecord.faculty}} {{educationRecord.university}} (місто {{careerRecord.city}}, {{careerRecord.country}})</p>
+        </li>
+      </ul>
+      <p>Робота:</p>
+      <ul>
+        <li ng-repeat="careerRecord in randomRecord.career">
+          <p>{{careerRecord.position}} {{careerRecord.company}} (місто {{careerRecord.city}}, {{careerRecord.country}})</p>
+        </li>
+      </ul>
       <p>Запис: {{randomRecord.raw}}</p>
     </div>
 
