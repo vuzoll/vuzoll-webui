@@ -1,0 +1,48 @@
+<div class="container" ng-controller="VkByVladRecordController">
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="breadcrumb">
+        <li><a ui-sref="app">Головна</a></li>
+        <li><a ui-sref="app.datasets">Датасети</a></li>
+        <li><a ui-sref="app.vk_vlad_explore">Датасет 'Vk by Vlad'</a></li>
+        <li class="active"><a ui-sref="app.vk_vlad_record({id: record.id})">Запис id:{{record.id}} з датасету 'Vk by Vlad'</a></li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12">
+      <h3>Запис id:{{record.id}} з датасету 'Vk by Vlad'</h3>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showRecord">
+      <h4>{{showRecordMessage}}</h4>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showRecord">
+      <h4>id: {{record.id}}</h4>
+
+      <p>Профіль: <a href="https://vk.com/id{{record.vkid}}">https://vk.com/id{{record.vkid}}</a></p>
+      <p>Країна: {{record.country}}</p>
+      <p>Місто: {{record.city}}</p>
+      <p>Навчання:</p>
+      <ul>
+        <li ng-repeat="educationRecord in record.education">
+          <p>{{educationRecord.faculty}} {{educationRecord.university}} (місто {{careerRecord.city}}, {{careerRecord.country}})</p>
+        </li>
+      </ul>
+      <p>Робота:</p>
+      <ul>
+        <li ng-repeat="careerRecord in record.career">
+          <p>{{careerRecord.position}} {{careerRecord.company}} (місто {{careerRecord.city}}, {{careerRecord.country}})</p>
+        </li>
+      </ul>
+      <p>Запис: {{record.raw}}</p>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+</div>
