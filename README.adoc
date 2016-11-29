@@ -2,15 +2,9 @@
 
 Web interface for vuzoll project
 
-== HOWTO: start locally
+TravisCI - https://travis-ci.org/vuzoll/vuzoll-webui/
 
-[source,shell]
-----
-gulp
-cp -rf dist/* json-server/public
-cd json-server
-json-server db.json
-----
+DockerHub - https://hub.docker.com/r/vuzoll/vuzoll-webui/
 
 == HOWTO: start with docker
 
@@ -19,8 +13,8 @@ json-server db.json
 docker ps # to determine if container is already running
 docker kill $CONTAINER_ID # if needed
 
-docker pull vuzoll/vuzoll-webui
-docker run -dit -p 80:80 vuzoll/vuzoll-webui
+docker pull vuzoll/vuzoll-webui:$TAG # to load specific image
+docker run -dit -p 80:80 vuzoll/vuzoll-webui:$TAG # to start specific image
 ----
 
 == HOWTO: check web ui

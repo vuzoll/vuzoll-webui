@@ -1,0 +1,344 @@
+<div class="container" ng-controller="VkByVladExploreController">
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="breadcrumb">
+        <li><a ui-sref="app">Головна</a></li>
+        <li><a ui-sref="app.datasets">Датасети</a></li>
+        <li class="active"><a ui-sref="app.vk_vlad_explore">Датасет 'Vk by Vlad'</a></li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12">
+      <h3>Датасет 'Vk by Vlad'</h3>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h4>{{showReportMessage}}</h4>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h4>Розмір</h4>
+
+      <p>Загальна кількість записів: {{report.size.total}}</p>
+      <p>Кількість унікальних записів: {{report.size.unique}}</p>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showRandomRecord">
+      <h4>{{showRandomRecordMessage}}</h4>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showRandomRecord">
+      <h4>Випадковий запис</h4>
+
+      <p><a ui-sref="app.vk_vlad_record({id: randomRecord.id})">id: {{randomRecord.id}}</a></p>
+      <p>Профіль: <a href="https://vk.com/id{{randomRecord.vkid}}">https://vk.com/id{{randomRecord.vkid}}</a></p>
+      <p>Країна: {{randomRecord.country}}</p>
+      <p>Місто: {{randomRecord.city}}</p>
+      <p>Навчання:</p>
+      <ul>
+        <li ng-repeat="educationRecord in randomRecord.education">
+          <p>{{educationRecord.faculty}} {{educationRecord.university}} (місто {{careerRecord.city}}, {{careerRecord.country}})</p>
+        </li>
+      </ul>
+      <p>Робота:</p>
+      <ul>
+        <li ng-repeat="careerRecord in randomRecord.career">
+          <p>{{careerRecord.position}} {{careerRecord.company}} (місто {{careerRecord.city}}, {{careerRecord.country}})</p>
+        </li>
+      </ul>
+      <p>Запис: {{randomRecord.raw}}</p>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h4>{{showReportMessage}}</h4>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h4>Країни</h4>
+
+      <p>Кількість різник країн: {{report.country.count}}</p>
+      <p>Кількість записів із невизначеною країною: {{report.country.undefined}}</p>
+
+      <p>Розподіл країн:</p>
+      <ul>
+        <li ng-repeat="country in report.country.distribution">
+          <p>{{country.name}} - {{country.count}} записів</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h4>{{showReportMessage}}</h4>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h4>Міста</h4>
+
+      <p>Кількість різних міст: {{report.city.count}}</p>
+      <p>Кількість записів із невизначеними містами: {{report.city.undefined}}</p>
+
+      <p>Розподіл міст:</p>
+      <ul>
+        <li ng-repeat="city in report.city.distribution">
+          <p>{{city.name}} - {{city.count}} записів</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h4>{{showReportMessage}}</h4>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h4>Університети</h4>
+
+      <p>Кількість різних університетів: {{report.university.count}}</p>
+      <p>Кількість записів із невизначеним університетом: {{report.university.undefined}}</p>
+
+      <p>Розподіл університетів:</p>
+      <ul>
+        <li ng-repeat="university in report.university.distribution">
+          <p>{{university.name}} - {{university.count}} записів</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h4>{{showReportMessage}}</h4>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h4>Факультети</h4>
+
+      <p>Кількість різних факультетів: {{report.faculty.count}}</p>
+      <p>Кількість записів із невизначеним факультетом: {{report.faculty.undefined}}</p>
+
+      <p>Розподіл факультетів:</p>
+      <ul>
+        <li ng-repeat="faculty in report.faculty.distribution">
+          <p>{{faculty.name}} - {{faculty.count}} записів</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h4>{{showReportMessage}}</h4>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h4>Рік випуску</h4>
+
+      <p>Кількість різних років випуску: {{report.graduateYear.count}}</p>
+      <p>Кількість записів із невизначеним роком випуску: {{report.graduateYear.undefined}}</p>
+
+      <p>Розподіл років випуску:</p>
+      <ul>
+        <li ng-repeat="graduateYear in report.graduateYear.distribution">
+          <p>{{graduateYear.name}} - {{graduateYear.count}} записів</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h4>{{showReportMessage}}</h4>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h4>Тип зайнятості</h4>
+
+      <p>Кількість різних типів зайнятостів: {{report.occupation.type.count}}</p>
+
+      <p>Розподіл типів зайнятості:</p>
+      <ul>
+        <li ng-repeat="occupationType in report.occupation.type.distribution">
+          <p>{{occupationType.name}} - {{occupationType.count}} записів</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h4>{{showReportMessage}}</h4>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h4>Місце зайнятості</h4>
+
+      <p>Кількість різних місць зайнятості: {{report.occupation.name.count}}</p>
+
+      <p>Розподіл місць зайнятості:</p>
+      <ul>
+        <li ng-repeat="occupationName in report.occupation.name.distribution">
+          <p>{{occupationName.name}} - {{occupationName.count}} записів</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h4>{{showReportMessage}}</h4>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h4>Поточне місце зайнятості</h4>
+
+      <p>Кількість різних поточних місць зайнятості: {{report.work.name.count}}</p>
+
+      <p>Розподіл поточних місць зайнятості:</p>
+      <ul>
+        <li ng-repeat="workName in report.work.name.distribution">
+          <p>{{workName.name}} - {{workName.count}} записів</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h4>{{showReportMessage}}</h4>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h4>Кількість кар'єрних етапів</h4>
+
+      <p>Розподіл кількостей кар'єрних етапів:</p>
+      <ul>
+        <li ng-repeat="careerSize in report.career.size.distribution">
+          <p>{{careerSize.name}} - {{careerSize.count}} записів</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h4>{{showReportMessage}}</h4>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h4>Місце роботи</h4>
+
+      <p>Кількість різних місць роботи: {{report.career.company.count}}</p>
+
+      <p>Розподіл місць роботи:</p>
+      <ul>
+        <li ng-repeat="company in report.career.company.distribution">
+          <p>{{company.name}} - {{company.count}} записів</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h4>{{showReportMessage}}</h4>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h4>Міста роботи</h4>
+
+      <p>Кількість різних міст роботи: {{report.career.city.count}}</p>
+
+      <p>Розподіл міст роботи:</p>
+      <ul>
+        <li ng-repeat="city in report.career.city.distribution">
+          <p>id:{{city.name}} - {{city.count}} записів</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-xs-12" ng-if="!showReport">
+      <h4>{{showReportMessage}}</h4>
+    </div>
+
+    <div class="col-xs-12 col-sm-9" ng-if="showReport">
+      <h4>Посади</h4>
+
+      <p>Кількість різних посад: {{report.career.position.count}}</p>
+
+      <p>Розподіл посад:</p>
+      <ul>
+        <li ng-repeat="position in report.career.position.distribution">
+          <p>{{position.name}} - {{position.count}} записів</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <p style="padding:20px;"></p>
+    </div>
+  </div>
+</div>
