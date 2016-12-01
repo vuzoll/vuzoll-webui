@@ -1,27 +1,38 @@
 sudo: required
 
 language: node_js
+
 node_js:
-  - "0.12"
+- '0.12'
 
 services:
-  - docker
+- docker
 
 before_install:
-  - npm install -g gulp
-  - npm install -g bower
+- npm install -g gulp
+- npm install -g bower
 
 install:
-  - npm install
-  - bower install
+- npm install
+- bower install
 
 script:
-  - gulp
+- gulp
 
 after_script:
-  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - export DOCKER_REPO=vuzoll/vuzoll-webui
-  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH | tr '/' '-' ; fi`
-  - docker build -t $DOCKER_REPO:travis-$TRAVIS_BUILD_NUMBER .
-  - docker tag $DOCKER_REPO:travis-$TRAVIS_BUILD_NUMBER $DOCKER_REPO:$TAG
-  - docker push $DOCKER_REPO
+- docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+- export DOCKER_REPO=vuzoll/vuzoll-webui
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH | tr '/' '-' ; fi`
+- docker build -t $DOCKER_REPO:travis-$TRAVIS_BUILD_NUMBER .
+- docker tag $DOCKER_REPO:travis-$TRAVIS_BUILD_NUMBER $DOCKER_REPO:$TAG
+- docker push $DOCKER_REPO
+
+notifications:
+  slack:
+    secure: Gk5Hat/2DiL4F14R8WWTD4P3vPlYvPgUW+zlEjgGNjbZ5Wq+fSJsPueq6FdAryM5HeiyrnXu3scuE5aJKe+dut6lteBaTO83hpA853VGlS9v4LGh7bCdFhTwHVLrPyQRExj3mhF1YiRTsRctTyjIig/aC96i6f8jLKAyF6qJL8q8jpKt6qrdM2d69oKWztPV8ScUrlPGpIz7oFPV++rNSRbL0cE8Ms35gHmwpA8/gZzT1mLUhbIl3tVqqtMdTjmOgLd3is8tR6VOx+1yda83zf4nJhS04yyetTJ850y+99HSlDpv0BQpA2+ZifsP00IeYLdCb/VNJlI8pi8rVYygXUHiC3EZTbEFqQDxvbe0oZtKCHHZNbcYvbUFUq+UknSSubRflYv7BLbt/y4J8TvYaOpiKQZPDSBXXT7DvpZLu8C7K4fx3Qay34pUukb++n2JPGZ5ihIHFUx4vgzNfLIzeibn5iUCj3432yZQFESfgn5YIDH3drqrtZpxFCwA0L72n810eM8qvKttDswRNE5AiOkrf5nWjs2pE+YhZAAtVv+SlgzhNvyLcqTG5WxzCZB8Zt6WYRpjqqDDCTKRKC72KOcy+EN2+Tq39Ma48i+Yim/RAnDf8M7GY39DpimgDCN2c3JwK4iZrzLIpk6j/9Rj8a4+Hr3povAP4iRcWsjaIJI=
+
+env:
+  global:
+  - secure: N+GyrzuqDP+uh5HYSv8z3ZE1cdmYaL3zSkg8LCotJpUAluN9RJ2AyUcmFpuwAZUmyEBbG2If0gxT0WBmTkW1xi/7205J49oFbNSwOqlNOf5Uxac2T1N1NJHp1XN+aP9avVHtsH0HlZIuQ1YjopBTSRSe5SIzjxO5xxVJBFqTGGJoO3EhPeSk95ojjyblHrnz1nlEkr81UMEUA78A3ISqjV2l8w24W/rngGzkh6y/tTQGLI7hZLlcQPyb7Jc/tRT9TkS+kmwoyXpgQ4/Dx4Bkp1fAU1+9eucEiz6rNXkEx2Klwpl27UNvJH2WXsgwA+QdswdSyUynf4IZWsypCJlPr2rzO5MZhNNYPd1FsdSJpSm6ftwTJowQbOZIwH8n1gZ1UF8gEDLF6Pi+wFZdwTDOF4RFxI3kKGq1PwmjCLc9+pNl3AU1Wo1Co4Q5wbe+e/XZIoCiJGdjnlIANWkZnfj6yAwmmVwXdNCcARrEGxN0edoAvLXN2FgeRAL/DTgv20+E03KtKsdsjbM4PdpzeGbMtqZtr3AR8PNjekz9+RK1wndXy3V6AK7rczJ4Dpl+YUo+DMlJ44sJlUCKgrFpJQxGsUW6B9RbkSAcpWZ42LTVVfiAdWp2TDxLhu2xncOAQ5ItNxScRr3P/eEwP9VBDYBcmt9F4Y1w+gTTwRNE/TSrkrk=
+  - secure: LUO+FtOSZkarjGbKg7w3YnLXnuyPOuJcbQDLP7WT18jx3DPEQzL6FWplpRIpHdWYCWbljbRSOZkBg8XSyVF4tq29TPsiisIze1sPtioElvsFgx9LvXa46K+NLms58FkiWjJmBSeSyByehvs2cBeORicXVovYp3w/upz13W2b2kngblqlzt+3I21+jCWXybopIiKXnRG2CZeyJsTjfk/FSnUy+9clq2YFjJ8+43FZrE7rw/45fa0fYBUil5fVac7dAjtZQRQEXw/nFMtFdCm8GQcpwrm/5NqasYsgVSxVF2kQYUguJ0eOiQulTbOiNY3hwSuB3StvSp9SeVgMa9KfgfjaH3M3x9JV8NYfE2m4e0a/LvRinSlF3D4Du0SYb3YWgY9yJZ6TXegKj+e/QJEWVoamhwMF7hpw8GptTr2NoGavSraV4kASvk+jJMqOWK/q7xmfWU2rH7yOw9ZhDquw3U1eQU+aAz0hoQ7SitrlhXj1gWkd5tIzLBRHTawCfppaF8z2Kcgj0QItnd60K1f2vz8NtWGZN89onflWDnbVYuJ2BIfkGDpu24ERpyJpTRxj1exgAKr2sDx5h9Q0VOdDNWU6a9VsBWMHK6XN/CkBpyzM3b7Ryig2+7ha/0vwM64Co4rxlQYSR4yEG4C9YTO2VZJLBfYd5axccpiRSOP8YMg=
+  - secure: iHAUtkIdOzjrV/RPx34UMiaN3JodyPFI0LmkEoINBL4s1RmoQv1CMrDiatP/KOnJ/6fZddTzAgC8oAmR+8g3tsZx5ypGqAeeQAcJofTvRvvk76F0ToG3MUZnFnuBcIY7Inl271H+NqC4OhcL1nHVQb5vZ3n/pHZ/Ah/k36cQntkI3TQQLA6W70D3656drsDrgfXoKjZEEqfJRyHz2MLYFxIOy5ztPeoeRbFyfzATBfwoUHpvJMIEMMVUwP6M+Ve63+yuTGiQFb74tNr+NTML+yvjVuRSEingYewxjZKAFEy4dX/y10M/dUeDZpZ2dbhGZYSfs0aUdTpnWWqwxxAqLLRfcCWL1GCW+XYG+FfMWZZ7WfUDZ9hYAXrFRaGVqMdS/16AvEMoeXuKPeI1M+jWDzIqbe9MxKVtNnqvCtp14GyWn+5EeOkLJ/ooAXXcxU3NUJ3FDIpTe4HJvCKiqx0fbfU63uekNoHGbxX1AftsHuk9rNLSmoer8m0688l/m9mJRml3HdNR2oe5G7cLvcYbSdQszvTuv9J9sGFD1ipYNPQ8++PXR06Eg1Nxs629FbqG/fcfLf5iY+Pxin4i1HwuMPU276BMrGTaFR+TKF8PzdLkZDPvNZTn2hBF+ql/yuL0t0OoAsKtV7tRHqnYV6STAPgCzkEKk3QEgn9gVxUs5ho=
